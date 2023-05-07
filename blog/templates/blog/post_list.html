@@ -1,26 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mj Blog</title>
-</head>
-<body>
-    <header>
-        <h1><a href="/">Mj Blog</a></h1>
-    </header>
 
-    <article>
-        <time>published: 07.05.2023, 17:55</time>
-        <h2><a href="">My first post</a></h2>
-        <p>Very happy to create the first blog plage using django!</p>
-    </article>
+{% extends 'blog/base.html' %}
+{% block content %}
+{% for post in posts %}
+<article class="post">
+    {% if post.published_date %}
+        <time class="date">
+            {{ post.published_date }}
+        </time>
+    {% endif %}
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.text|linebreaksbr }}</p>
+</article>
 
-    <article>
-        <time>published: 07.05.2023, 17:56</time>
-        <h2><a href="">My second post</a></h2>
-        <p>This looks crazY</p>
-    </article>
-</body>
-</html>
+{% endfor %}
+{% endblock %}
