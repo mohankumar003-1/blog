@@ -121,7 +121,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = 'mohankumar003-1/blog/static/css/blog/css/static'
+STATIC_ROOT = '/home/mohankumar/mohankumar.pythonanywhere.com/static'
 
 
 # Default primary key field type
